@@ -1,7 +1,9 @@
+import React from "react";
 import logo from './logo.svg';
 import './App.css';
 import Home from './Components/RenderingTest/hello';
 import User from "./Components/DataFetchingTest/user";
+import Toggle from './Components/EventsTest/toggle';
 
 // App Component..
 function App() {
@@ -10,13 +12,18 @@ function App() {
       id: 1,
       name: 'Xerox A',
       age: 22,
-      address: 'Washington, London'
+      address: 'Washington, London',
   };
 
+  // react hook..
+  const [isLogo, setLogo] = React.useState(true);
+
+
+  // returning statement..
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+          {isLogo && <img src={logo} className="App-logo" alt="logo" />}
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -30,11 +37,14 @@ function App() {
         </a>
       </header>
 
-      {/*------ Home Component to testing -----*/}
+      {/*------ Render testing -----*/}
       <Home {...state} />
 
-      {/*------ User Component to testing -----*/}
+      {/*------ Data Fetch testing -----*/}
       <User {...state} />
+
+      {/*------ Events testing -------*/}
+      <Toggle onChange={ (state) => setLogo(state) } />
     </div>
   );
 }

@@ -46,6 +46,6 @@ it('renders user data', async () => {
     expect(container.querySelector('#phone').textContent).toBe(fakeUser.phone);
     expect(container.textContent).toContain(fakeUser.website);
 
-    // remove the mock to ensure tests are completely isolated
+    // remove the mock to ensure tests are completely isolated..
     global.fetch.mockRestore();
 });
